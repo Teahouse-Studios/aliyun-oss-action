@@ -4,6 +4,7 @@ build({
     bundle: true,
     target: 'node16',
     entryPoints: ['./src/index.ts'],
-    outfile: './dist.js',
+    outfile: './index.js',
+    minify: true,
     platform: 'node'
 })
