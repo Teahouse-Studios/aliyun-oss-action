@@ -14,7 +14,7 @@ import { resolve } from 'path'
     const prefix = resolve(core.getInput('LOCAL_PATH'))
     let tasks = glob.sync(`${prefix}/**/*.*`).map(v => v.substr(prefix.length))
     for (let task of tasks) {
-        const remoteName = core.getInput('REMOTE_PREFIX') + task
+        const remoteName = (core.getInput('REMOTE_PREFIX') || "") + task
         await store.put(remoteName, resolve(prefix, task))
         console.log(task)
     }
