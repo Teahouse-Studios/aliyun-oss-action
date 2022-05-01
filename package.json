@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "build": "ts-node build.ts"
+  },
+  "dependencies": {
+    "@actions/core": "^1.7.0",
+    "@actions/github": "^5.0.1",
+    "ali-oss": "^6.17.1",
+    "glob": "^8.0.1"
+  },
+  "devDependencies": {
+    "@types/ali-oss": "^6.16.3",
+    "@types/node": "^17.0.30",
+    "esbuild": "^0.14.38",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
+}

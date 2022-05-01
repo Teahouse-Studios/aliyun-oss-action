@@ -1,0 +1,15 @@
+name: 'Aliyun OSS Upload'
+inputs:
+  KEY_ID:
+    required: true
+  KEY_SECRET:
+    required: true
+  BUCKET:
+    required: true
+  LOCAL_PATH:
+    required: true
+  REMOTE_PREFIX:
+    required: true
+runs:
+  using: 'node16'
+  main: 'index.js'
