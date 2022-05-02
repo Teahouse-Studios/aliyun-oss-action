@@ -10,13 +10,13 @@ import { resolve } from 'path'
         bucket: core.getInput('BUCKET'),
         endpoint: 'oss-accelerate.aliyuncs.com'
     })
-
     const prefix = resolve(process.env.GITHUB_WORKSPACE, core.getInput('LOCAL_PATH'))
+    console.log('prefix', prefix)
     let tasks = glob.sync(`${prefix}/**/*.*`).map(v => v.substr(prefix.length))
     for (let task of tasks) {
         const remoteName = (core.getInput('REMOTE_PREFIX') || "") + task
+        console.log(remoteName, task)
         await store.put(remoteName, resolve(prefix, task))
-        console.log(task)
     }
     console.log('done')
 })()
