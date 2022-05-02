@@ -11,7 +11,7 @@ import { resolve } from 'path'
         endpoint: 'oss-accelerate.aliyuncs.com'
     })
 
-    const prefix = resolve(core.getInput('LOCAL_PATH'))
+    const prefix = resolve(process.env.GITHUB_WORKSPACE, core.getInput('LOCAL_PATH'))
     let tasks = glob.sync(`${prefix}/**/*.*`).map(v => v.substr(prefix.length))
     for (let task of tasks) {
         const remoteName = (core.getInput('REMOTE_PREFIX') || "") + task
