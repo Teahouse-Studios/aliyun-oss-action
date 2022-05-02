@@ -12,7 +12,7 @@ import { resolve } from 'path'
     })
     const prefix = resolve(process.env.GITHUB_WORKSPACE, core.getInput('LOCAL_PATH'))
     console.log('prefix', prefix)
-    let tasks = glob.sync(`${prefix}/**/*.*`).map(v => v.substr(prefix.length))
+    let tasks = glob.sync(`${prefix}/**/*.*`).map(v => './' + v.substr(prefix.length))
     for (let task of tasks) {
         const remoteName = (core.getInput('REMOTE_PREFIX') || "") + task
         console.log(remoteName, task)
